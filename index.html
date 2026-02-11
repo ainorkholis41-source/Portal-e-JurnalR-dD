@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>🌙 SD Bulan Cendekia · Portal Premium Luminous Night</title>
+  
+  <!-- Font Awesome 6 Pro (menggunakan kit pro) -->
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
+  
+  <!-- Google Fonts Inter + Poppins premium -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Swiper JS untuk carousel premium -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  
+  <style>
+    /* ===== RESET & VARIABEL PREMIUM ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0f2a4a;
+      --primary-light: #1e4a6e;
+      --primary-soft: #2a6b8f;
+      --accent: #ffb347;
+      --accent-soft: #ffe5b4;
+      --luminous: #fff9e6;
+      --night-blue: #0a1a2f;
+      --night-sky: linear-gradient(145deg, #0b2b40, #1c4e6f, #2c6b8f);
+      --glass: rgba(255, 255, 255, 0.25);
+      --glass-border: rgba(255, 255, 255, 0.35);
+      --shadow-premium: 0 25px 50px -10px rgba(0,0,0,0.25);
+      --shadow-glow: 0 0 40px rgba(255,215,100,0.3);
+      --font-head: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--night-sky);
+      background-attachment: fixed;
+      color: #e6f3ff;
+      line-height: 1.7;
+      position: relative;
+      overflow-x: hidden;
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* ===== PREMIUM ANIMATIONS ===== */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-20px) scale(1.02); }
+    }
+
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 50px 25px rgba(255, 230, 130, 0.4), 0 0 120px 60px rgba(255, 200, 50, 0.2); }
+      100% { box-shadow: 0 0 80px 45px rgba(255, 245, 150, 0.6), 0 0 180px 100px rgba(255, 220, 80, 0.3); }
+    }
+
+    /* ===== BULAN PURNAMA PREMIUM ===== */
+    .moon-premium {
+      position: fixed;
+      top: 20px;
+      right: 60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle at 30% 30%, #fffef7, #ffeaa5, #ffd966);
+      border-radius: 50%;
+      filter: drop-shadow(0 0 60px #ffe68f) blur(1px);
+      animation: float 12s infinite ease-in-out, glowPulse 6s infinite alternate;
+      z-index: 2;
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    /* ===== STARS PREMIUM ===== */
+    .star-field {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .star-premium {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255,255,200,0.8);
+      animation: twinkle 4s infinite alternate;
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.3; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 40px #fffeca; }
+    }
+
+    /* ===== LAYOUT PREMIUM DASHBOARD ===== */
+    .portal-premium {
+      max-width: 1600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 50;
+      padding: 20px 30px;
+    }
+
+    /* ===== GLASS MORPHISM ELEVATED ===== */
+    .glass-premium {
+      background: rgba(10, 30, 50, 0.55);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      border-bottom: 2px solid rgba(255, 215, 100, 0.4);
+      border-radius: 48px 16px 48px 16px;
+      box-shadow: 0 20px 50px -15px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,230,140,0.1) inset;
+      padding: 35px 40px;
+      margin-bottom: 35px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .glass-premium:hover {
+      background: rgba(15, 45, 70, 0.65);
+      border-color: rgba(255, 230, 150, 0.5);
+      box-shadow: 0 35px 70px -15px #00000060, 0 0 0 2px rgba(255,245,160,0.2) inset;
+      transform: translateY(-5px);
+    }
+
+    /* ===== PREMIUM HEADER ===== */
+    .header-premium {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo-premium {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo-frame {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #ffffff, #fffaf0);
+      border-radius: 35% 65% 45% 55% / 50% 40% 60% 50%;
+      box-shadow: 0 20px 40px rgba(0,20,30,0.5), 0 0 0 5px rgba(255,240,150,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: all 0.5s;
+    }
+
+    .logo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .logo-text h1 {
+      font-family: var(--font-head);
+      font-size: 2.4rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #fffbe6, #ffe9b0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      letter-spacing: -0.02em;
+      margin-bottom: 5px;
+    }
+
+    .tagline-premium {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #ffeab3;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ===== PREMIUM BUTTONS ===== */
+    .btn-premium {
+      background: linear-gradient(145deg, #2a5f73, #1b3b4e);
+      border: none;
+      border-bottom: 4px solid #ffcd7e;
+      color: white;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3), 0 4px 0 #0f1f28;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+
+    .btn-premium i {
+      font-size: 1.2rem;
+    }
+
+    .btn-premium:active {
+      transform: translateY(6px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3), 0 2px 0 #0f1f28;
+      border-bottom-width: 2px;
+    }
+
+    .btn-premium-glow {
+      background: linear-gradient(145deg, #d68b2c, #b06a1b);
+      border-bottom-color: #ffea9f;
+      box-shadow: 0 0 25px #ffb34780, 0 12px 25px #00000050, 0 4px 0 #6d3f0e;
+    }
+
+    /* ===== SETTINGS PANEL PREMIUM ===== */
+    .settings-dock {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+    }
+
+    .settings-trigger {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(145deg, #ffb347, #ff9f1a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: #0a1a2f;
+      box-shadow: 0 10px 30px #ffb347, 0 0 0 5px rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 2px solid white;
+    }
+
+    .settings-trigger:hover {
+      transform: rotate(90deg) scale(1.1);
+      background: #ffc56a;
+    }
+
+    .settings-panel-premium {
+      position: fixed;
+      top: 0;
+      right: -600px;
+      width: 550px;
+      height: 100vh;
+      background: rgba(8, 28, 40, 0.95);
+      backdrop-filter: blur(30px);
+      border-left: 3px solid #ffd966;
+      box-shadow: -20px 0 60px #00000080;
+      z-index: 10000;
+      padding: 40px;
+      transition: right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      overflow-y: auto;
+      border-radius: 40px 0 0 40px;
+    }
+
+    .settings-panel-premium.active {
+      right: 0;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ffcd7e;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .panel-header h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #ffe5a3, #ffd966);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .close-panel {
+      font-size: 36px;
+      color: #ffcd94;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    /* ===== PREMIUM FORM ===== */
+    .form-section {
+      margin-bottom: 30px;
+      background: rgba(0,0,0,0.2);
+      padding: 25px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,200,100,0.3);
+    }
+
+    .form-group-premium {
+      margin-bottom: 20px;
+    }
+
+    .form-group-premium label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #ffde9e;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    .form-control-premium {
+      width: 100%;
+      padding: 16px 22px;
+      background: rgba(10, 30, 45, 0.8);
+      border: 2px solid #2e6d8c;
+      border-radius: 50px;
+      font-size: 1rem;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .form-control-premium:focus {
+      border-color: #ffb347;
+      box-shadow: 0 0 25px #ffb34760;
+      outline: none;
+      background: #0a2a3a;
+    }
+
+    /* ===== KELAS GRID PREMIUM ===== */
+    .kelas-grid-premium {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .kelas-card-premium {
+      background: linear-gradient(145deg, #163a4a, #0e2a36);
+      padding: 25px 15px;
+      border-radius: 30px 10px 30px 10px;
+      text-align: center;
+      border: 1px solid #4c8da0;
+      border-bottom: 6px solid #ffb347;
+      color: #f5ffd3;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      box-shadow: 0 15px 25px -8px black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .kelas-card-premium i {
+      font-size: 44px;
+      color: #ffd966;
+      filter: drop-shadow(0 8px 6px #00000050);
+    }
+
+    .kelas-card-premium:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: #ffe083;
+      background: #1e4f62;
+      box-shadow: 0 25px 40px -5px #000000, 0 0 0 2px #ffd96680;
+    }
+
+    /* ===== RESPONSIVE DASHBOARD ===== */
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      margin-bottom: 35px;
+    }
+
+    .stat-card {
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 30px;
+      border: 1px solid #ffd96660;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .stat-icon {
+      width: 70px;
+      height: 70px;
+      background: #ffb34730;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: #ffd966;
+    }
+
+    .stat-info h4 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1.2;
+    }
+
+    /* ===== VIDEO PREMIUM ===== */
+    .video-premium-container {
+      position: relative;
+      padding-bottom: 45%;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 30px 50px -10px black;
+      border: 2px solid #ffcd94;
+    }
+
+    .video-premium-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ===== FOOTER PREMIUM ===== */
+    .footer-premium {
+      background: rgba(4, 15, 25, 0.8);
+      backdrop-filter: blur(20px);
+      border-radius: 70px 20px 20px 20px;
+      padding: 50px 50px 35px;
+      border: 2px solid #ffd96680;
+      margin-top: 60px;
+    }
+
+    /* ===== SCROLLBAR PREMIUM ===== */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a1f2c;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(#ffb347, #d68b2c);
+      border-radius: 20px;
+      border: 2px solid #fff3bf;
+    }
+
+    /* ===== RESPONSIVE BREAKPOINTS ===== */
+    @media (max-width: 1200px) {
+      .portal-premium { padding: 15px; }
+      .logo-text h1 { font-size: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .settings-panel-premium { width: 100%; right: -100%; }
+      .header-premium { flex-direction: column; align-items: start; }
+      .logo-frame { width: 80px; height: 80px; }
+      .glass-premium { padding: 25px; }
+    }
+
+    /* ===== MODE TOGGLE ===== */
+    .mode-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: #ffb34730;
+      border-radius: 60px;
+      border: 1px solid #ffcd94;
+      color: #ffe6aa;
+      font-weight: 600;
+      backdrop-filter: blur(5px);
+    }
+  </style>
+</head>
+<body>
+  <!-- PREMIUM MOON & STARS -->
+  <div class="moon-premium"></div>
+  <div class="star-field" id="starField"></div>
+
+  <!-- SETTINGS DOCK PREMIUM -->
+  <div class="settings-dock">
+    <div class="settings-trigger" onclick="toggleSettingsPanel()">
+      <i class="fa-sharp fa-solid fa-sliders"></i>
+    </div>
+  </div>
+
+  <!-- PREMIUM SETTINGS PANEL -->
+  <div id="settingsPanelPremium" class="settings-panel-premium">
+    <div class="panel-header">
+      <h2><i class="fa-sharp fa-light fa-moon-stars"></i> Admin Console</h2>
+      <div class="close-panel" onclick="toggleSettingsPanel()">
+        <i class="fa-sharp fa-solid fa-circle-xmark"></i>
+      </div>
+    </div>
+
+    <!-- PASSWORD PROTECT -->
+    <div id="passwordScreenPremium" class="form-section" style="text-align: center;">
+      <i class="fa-sharp fa-solid fa-lock-keyhole" style="font-size: 64px; color: #ffd966; margin-bottom: 20px;"></i>
+      <h3 style="color: white; margin-bottom: 25px;">Akses Administrator</h3>
+      <input type="password" id="adminPasswordInput" class="form-control-premium" placeholder="Masukkan Password" style="margin-bottom: 20px;">
+      <button onclick="verifyPasswordPremium()" class="btn-premium btn-premium-glow" style="width: 100%; justify-content: center;">
+        <i class="fa-sharp fa-solid fa-key"></i> Buka Dashboard
+      </button>
+      <p style="color: #ffcd94; margin-top: 20px;">Default: <strong>admin123</strong></p>
+    </div>
+
+    <!-- CUSTOMIZATION FORM (HIDDEN BY DEFAULT) -->
+    <div id="customFormPremium" style="display: none;">
+      <div class="form-section">
+        <h3 style="color: #ffd966; margin-bottom: 25px;"><i class="fa-sharp fa-light fa-paint-brush"></i> Identitas Sekolah</h3>
+        
+        <div class="form-group-premium">
+          <label><i class="fa-sharp fa-light fa-image"></i> Logo URL</label>
+          <input type="url" id="logoUrlPremium" class="form-control-premium" placeholder="https://...">
+        </div>
+        <div class="form-group-premium">
+          <label><i class="fa-sharp fa-light fa-font"></i> Teks Logo (jika URL kosong)</label>
+          <input type="text" id="logoTextPremium" class="form-control-premium" value="🏫 SD Bulan Cendekia">
+        </div>
+        <div class="form-group-premium">
+          <label><i class="fa-sharp fa-light fa-heading"></i> Judul Portal</label>
+          <input type="text" id="judulPremium" class="form-control-premium" value="SD Bulan Cendekia">
+        </div>
+        <div class="form-group-premium">
+          <label><i class="fa-sharp fa-light fa-quote-right"></i> Tagline</label>
+          <input type="text" id="taglinePremium" class="form-control-premium" value="Jembatan Ceria Ortu, Siswa & Guru">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 style="color: #ffd966; margin-bottom: 25px;"><i class="fa-sharp fa-light fa-link"></i> Google Sheet Mode</h3>
+        
+        <div style="display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;">
+          <label class="mode-badge" style="cursor: pointer; background: #ffb34780;" onclick="setMode('single')">
+            <input type="radio" name="sheetModePremium" value="single" checked style="display: none;"> 📊 Mode 1: Satu Sheet
+          </label>
+          <label class="mode-badge" style="cursor: pointer;" onclick="setMode('pertingkat')">
+            <input type="radio" name="sheetModePremium" value="pertingkat" style="display: none;"> 📚 Mode 2: Per Tingkat
+          </label>
+          <label class="mode-badge" style="cursor: pointer;" onclick="setMode('perrombel')">
+            <input type="radio" name="sheetModePremium" value="perrombel" style="display: none;"> 📁 Mode 3: Per Rombel
+          </label>
+        </div>
+
+        <div id="sheetInputsPremium">
+          <!-- Mode 1 -->
+          <div id="modeSingleInput" class="form-group-premium">
+            <label>Link Master Google Sheet</label>
+            <input type="url" id="sheetMasterPremium" class="form-control-premium" value="https://docs.google.com/spreadsheets/d/1CONTOH_SD_MASTER">
+            <p style="color: #ffcd94; font-size: 0.9rem; margin-top: 8px;">gid 1 (1A) - gid 24 (6D) otomatis</p>
+          </div>
+          
+          <!-- Mode 2 & 3 akan diisi JS -->
+          <div id="modeTingkatInputs" style="display: none;"></div>
+          <div id="modeRombelInputs" style="display: none;"></div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 style="color: #ffd966;"><i class="fa-sharp fa-light fa-canva"></i> Canva & Media</h3>
+        <div class="form-group-premium">
+          <label>Link e-Jurnal Ramadan Canva</label>
+          <input type="url" id="canvaPremium" class="form-control-premium" value="https://www.canva.com/design/DA-SD-RAMADAN">
+        </div>
+        <div class="form-group-premium">
+          <label>Instagram</label>
+          <input type="text" id="igPremium" class="form-control-premium" value="@sdbulancendekia">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 style="color: #ffd966;"><i class="fa-sharp fa-light fa-shield-keyhole"></i> Keamanan</h3>
+        <div class="form-group-premium">
+          <label>Password Admin Baru</label>
+          <input type="text" id="newPasswordPremium" class="form-control-premium" placeholder="Ganti password">
+        </div>
+      </div>
+
+      <button onclick="applyPremiumSettings()" class="btn-premium btn-premium-glow" style="width: 100%; justify-content: center; margin-bottom: 20px;">
+        <i class="fa-sharp fa-solid fa-circle-check"></i> Terapkan Konfigurasi Premium
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN PORTAL PREMIUM -->
+  <div class="portal-premium">
+    <!-- DASHBOARD STATS -->
+    <div class="dashboard-stats" data-aos="fade-up">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fa-sharp fa-light fa-users"></i></div>
+        <div class="stat-info">
+          <h4>24</h4>
+          <p style="color: #ffd966;">Rombel Aktif</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fa-sharp fa-light fa-moon"></i></div>
+        <div class="stat-info">
+          <h4>1446 H</h4>
+          <p style="color: #ffd966;">Ramadan</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fa-sharp fa-light fa-file-excel"></i></div>
+        <div class="stat-info">
+          <h4 id="statsMode">Mode 1</h4>
+          <p style="color: #ffd966;" id="statsDesc">Satu Sheet</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER PREMIUM -->
+    <header class="glass-premium header-premium" data-aos="fade-up" data-aos-delay="100">
+      <div class="logo-premium">
+        <div class="logo-frame" id="logoFramePremium">
+          <span id="logoInnerPremium" style="font-size: 54px;">🏫</span>
+        </div>
+        <div class="logo-text">
+          <h1 id="judulPremiumDisplay">SD Bulan Cendekia</h1>
+          <span class="tagline-premium" id="taglinePremiumDisplay">
+            <i class="fa-sharp fa-light fa-star"></i> Jembatan Ceria Ortu, Siswa & Guru
+          </span>
+        </div>
+      </div>
+      <div class="mode-badge" id="modeBadgeHeader">
+        <i class="fa-sharp fa-light fa-file-excel"></i> Mode 1: Satu Sheet
+      </div>
+    </header>
+
+    <!-- SAMBUTAN KEPSEK PREMIUM -->
+    <section class="glass-premium" data-aos="fade-up" data-aos-delay="150">
+      <div style="display: flex; gap: 35px; align-items: center; flex-wrap: wrap;">
+        <div style="font-size: 100px; background: #ffb34740; padding: 15px; border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%; border: 3px solid #ffd966;">
+          👩‍🏫
+        </div>
+        <div style="flex: 1;">
+          <h2 style="color: #fff5d6; font-size: 2rem; margin-bottom: 10px;"><i class="fa-sharp fa-light fa-crown"></i> Sambutan Kepala Sekolah</h2>
+          <p style="font-size: 1.3rem; font-weight: 600; color: #ffe6a3;">Dr. Hj. Nurhayati, S.Pd., M.Pd.</p>
+          <p style="color: #e6f7ff; font-size: 1.05rem; line-height: 1.8;">"Selamat datang di Portal Premium SD Bulan Cendekia. Dengan 24 rombel dan sistem link Google Sheet fleksibel, kami hadirkan jembatan digital terintegrasi untuk orang tua, siswa, dan guru. Bulan purnama bercahaya menjadi simbol kebersamaan kita. Ramadan tahun ini, mari kita isi dengan e-Jurnal Canva yang interaktif."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO TUTORIAL PREMIUM -->
+    <section class="glass-premium" data-aos="fade-up" data-aos-delay="200">
+      <h2 style="color: #fff5d6; margin-bottom: 25px;"><i class="fa-sharp fa-light fa-clapperboard-play"></i> Tutorial Premium</h2>
+      <div class="video-premium-container">
+        <iframe src="https://www.youtube.com/embed/9N5H0OB8kDk" title="Tutorial Portal Premium" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- KELAS GRID PREMIUM - 24 ROMBEL -->
+    <section class="glass-premium" data-aos="fade-up" data-aos-delay="250">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; flex-wrap: wrap;">
+        <h2 style="color: #fff5d6;"><i class="fa-sharp fa-light fa-layer-group"></i> Akses Kelas 1A - 6D (24 Rombel)</h2>
+        <span id="sheetInfoPremium" class="mode-badge" style="background: #1e4f62;">🔄 Satu Sheet Master</span>
+      </div>
+      
+      <div class="kelas-grid-premium" id="kelasGridPremium"></div>
+    </section>
+
+    <!-- E-JURNAL RAMADAN PREMIUM -->
+    <section class="glass-premium" style="text-align: center;" data-aos="fade-up" data-aos-delay="300">
+      <h2 style="color: #fff5d6; font-size: 2.2rem;"><i class="fa-sharp fa-light fa-moon"></i> e-Jurnal Ramadan 1446 H</h2>
+      <div style="margin: 40px 0;">
+        <span style="background: linear-gradient(145deg, #d68b2c, #b06a1b); padding: 25px 60px; border-radius: 120px; font-size: 2.5rem; border: 6px solid #ffefb0; color: white; display: inline-block; box-shadow: 0 20px 40px black; font-weight: 800;">
+          🕌 Jurnal Ibadah Premium
+        </span>
+      </div>
+      <a id="canvaBtnPremium" href="#" target="_blank" class="btn-premium btn-premium-glow" style="font-size: 1.8rem; padding: 25px 70px;">
+        <i class="fa-brands fa-canva"></i> Buka Canva
+      </a>
+    </section>
+
+    <!-- FOOTER PREMIUM -->
+    <footer class="footer-premium">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px;">
+        <div style="display: flex; gap: 25px; align-items: center;">
+          <div style="width: 90px; height: 90px; background: rgba(255,255,255,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 2px solid #ffd966;" id="footerLogoPremium">
+            <span id="footerLogoInnerPremium" style="font-size: 50px;">🏫</span>
+          </div>
+          <div>
+            <h3 style="color: white; font-size: 1.8rem; margin-bottom: 5px;" id="footerNamaPremium">SD Bulan Cendekia</h3>
+            <span style="color: #ffe6aa;" id="footerTaglinePremium">Jembatan Ceria Ortu, Siswa & Guru</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#" id="igLinkPremium" style="color: white; font-size: 32px; background: #2a5f73; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 20px; border: 2px solid #ffd966;"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" id="fbLinkPremium" style="color: white; font-size: 32px; background: #2a5f73; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 20px; border: 2px solid #ffd966;"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" style="color: white; font-size: 32px; background: #2a5f73; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 20px; border: 2px solid #ffd966;"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <hr style="border: 1px solid #ffd96660; margin: 40px 0 20px;">
+      <p style="text-align: center; color: #ffeab3; font-size: 1.1rem;">© 1446 H / 2025 M · SD Bulan Cendekia — Premium Luminous Night Portal</p>
+    </footer>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <script>
+    // ===== PREMIUM CONFIGURATION =====
+    const adminPasswordDefault = "admin123";
+    let adminPassword = adminPasswordDefault;
+    let currentSheetMode = "single";
+
+    // ===== GENERATE 24 ROMBEL =====
+    const kelasSD = [];
+    for (let tingkat = 1; tingkat <= 6; tingkat++) {
+      for (let rombel of ['A', 'B', 'C', 'D']) {
+        kelasSD.push({
+          nama: `Kelas ${tingkat}${rombel}`,
+          tingkat: tingkat,
+          rombel: rombel,
+          gid: (tingkat - 1) * 4 + (rombel.charCodeAt(0) - 65) + 1
+        });
+      }
+    }
+
+    // ===== GENERATE INPUT ROMBEL =====
+    function generateRombelInputsPremium() {
+      let html = '<div style="display: grid; grid-template-columns: repeat(2,1fr); gap: 15px;">';
+      kelasSD.forEach(k => {
+        html += `<div>
+          <label style="color: #ffcd94; font-size: 0.9rem;">${k.nama}</label>
+          <input type="url" id="sheet_${k.nama.replace(' ','')}" class="form-control-premium" value="https://docs.google.com/spreadsheets/d/${k.nama}">
+        </div>`;
+      });
+      html += '</div>';
+      document.getElementById('modeRombelInputs').innerHTML = html;
+    }
+
+    // ===== GENERATE INPUT TINGKAT =====
+    function generateTingkatInputsPremium() {
+      let html = '';
+      for (let i = 1; i <= 6; i++) {
+        html += `<div class="form-group-premium">
+          <label>Link Sheet Kelas ${i}</label>
+          <input type="url" id="sheetTingkat${i}" class="form-control-premium" value="https://docs.google.com/spreadsheets/d/KELAS${i}">
+        </div>`;
+      }
+      html += '<p style="color: #ffcd94;">gid 1 (A), 2 (B), 3 (C), 4 (D) otomatis</p>';
+      document.getElementById('modeTingkatInputs').innerHTML = html;
+    }
+
+    // ===== SET MODE =====
+    window.setMode = function(mode) {
+      currentSheetMode = mode;
+      
+      // Update radio buttons
+      document.querySelectorAll('input[name="sheetModePremium"]').forEach(r => {
+        r.checked = (r.value === mode);
+      });
+      
+      // Toggle inputs
+      document.getElementById('modeSingleInput').style.display = mode === 'single' ? 'block' : 'none';
+      document.getElementById('modeTingkatInputs').style.display = mode === 'pertingkat' ? 'block' : 'none';
+      document.getElementById('modeRombelInputs').style.display = mode === 'perrombel' ? 'block' : 'none';
+      
+      // Update badge
+      let modeText = mode === 'single' ? 'Mode 1: Satu Sheet' : (mode === 'pertingkat' ? 'Mode 2: Per Tingkat' : 'Mode 3: Per Rombel');
+      document.getElementById('modeBadgeHeader').innerHTML = `<i class="fa-sharp fa-light fa-file-excel"></i> ${modeText}`;
+      document.getElementById('statsMode').innerText = mode === 'single' ? 'Mode 1' : (mode === 'pertingkat' ? 'Mode 2' : 'Mode 3');
+      document.getElementById('statsDesc').innerText = mode === 'single' ? 'Satu Sheet' : (mode === 'pertingkat' ? '6 Sheet' : '24 Sheet');
+      document.getElementById('sheetInfoPremium').innerHTML = `🔄 ${modeText}`;
+      
+      renderKelasPremium();
+    };
+
+    // ===== RENDER KELAS =====
+    function renderKelasPremium() {
+      const container = document.getElementById('kelasGridPremium');
+      let html = '';
+      
+      kelasSD.forEach(k => {
+        let url = '#';
+        
+        if (currentSheetMode === 'single') {
+          let baseUrl = document.getElementById('sheetMasterPremium')?.value || 'https://docs.google.com/spreadsheets/d/1CONTOH_SD_MASTER';
+          url = baseUrl.includes('/edit') ? baseUrl : baseUrl + '/edit';
+          if (url.includes('#gid=')) url = url.replace(/#gid=\d+/, '#gid=' + k.gid);
+          else url = url + '#gid=' + k.gid;
+        }
+        else if (currentSheetMode === 'pertingkat') {
+          let tingkatInput = document.getElementById(`sheetTingkat${k.tingkat}`);
+          let baseUrl = tingkatInput ? tingkatInput.value : `https://docs.google.com/spreadsheets/d/KELAS${k.tingkat}`;
+          url = baseUrl.includes('/edit') ? baseUrl : baseUrl + '/edit';
+          let rombelGid = { 'A':1, 'B':2, 'C':3, 'D':4 }[k.rombel] || 1;
+          if (url.includes('#gid=')) url = url.replace(/#gid=\d+/, '#gid=' + rombelGid);
+          else url = url + '#gid=' + rombelGid;
+        }
+        else if (currentSheetMode === 'perrombel') {
+          let rombelInput = document.getElementById(`sheet_${k.nama.replace(' ','')}`);
+          url = rombelInput ? rombelInput.value : `https://docs.google.com/spreadsheets/d/${k.nama}`;
+        }
+        
+        html += `<a href="${url}" class="kelas-card-premium" target="_blank">
+                  <i class="fa-sharp fa-light fa-file-excel"></i>
+                  <span>${k.nama}</span>
+                </a>`;
+      });
+      
+      container.innerHTML = html;
+    }
+
+    // ===== UPDATE LOGO =====
+    function updateLogoPremium(url, text) {
+      const logoInner = document.getElementById('logoInnerPremium');
+      const footerInner = document.getElementById('footerLogoInnerPremium');
+      
+      if (url && url.trim()) {
+        logoInner.innerHTML = `<img src="${url}" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">`;
+        footerInner.innerHTML = `<img src="${url}" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">`;
+      } else {
+        logoInner.innerText = text || '🏫';
+        footerInner.innerText = text || '🏫';
+      }
+    }
+
+    // ===== APPLY PREMIUM SETTINGS =====
+    window.applyPremiumSettings = function() {
+      // Logo
+      let logoUrl = document.getElementById('logoUrlPremium').value;
+      let logoText = document.getElementById('logoTextPremium').value;
+      updateLogoPremium(logoUrl, logoText);
+      
+      // Judul & Tagline
+      document.getElementById('judulPremiumDisplay').innerText = document.getElementById('judulPremium').value || 'SD Bulan Cendekia';
+      document.getElementById('taglinePremiumDisplay').innerHTML = `<i class="fa-sharp fa-light fa-star"></i> ${document.getElementById('taglinePremium').value || 'Jembatan Ceria Ortu, Siswa & Guru'}`;
+      document.getElementById('footerNamaPremium').innerText = document.getElementById('judulPremium').value || 'SD Bulan Cendekia';
+      document.getElementById('footerTaglinePremium').innerText = document.getElementById('taglinePremium').value || 'Jembatan Ceria Ortu, Siswa & Guru';
+      
+      // Canva
+      document.getElementById('canvaBtnPremium').href = document.getElementById('canvaPremium').value;
+      
+      // Sosmed
+      let ig = document.getElementById('igPremium').value;
+      document.getElementById('igLinkPremium').href = ig.startsWith('http') ? ig : 'https://instagram.com/' + ig.replace('@','');
+      
+      // Password
+      let newPwd = document.getElementById('newPasswordPremium').value;
+      if (newPwd) adminPassword = newPwd;
+      
+      // Render ulang kelas
+      renderKelasPremium();
+      
+      alert('✅ Konfigurasi premium diterapkan!');
+      toggleSettingsPanel();
+    };
+
+    // ===== VERIFY PASSWORD =====
+    window.verifyPasswordPremium = function() {
+      const pwd = document.getElementById('adminPasswordInput').value;
+      if (pwd === adminPassword) {
+        document.getElementById('passwordScreenPremium').style.display = 'none';
+        document.getElementById('customFormPremium').style.display = 'block';
+        
+        // Prefill form
+        document.getElementById('judulPremium').value = document.getElementById('judulPremiumDisplay').innerText;
+        document.getElementById('taglinePremium').value = document.getElementById('taglinePremiumDisplay').innerText.replace('⭐ ', '');
+        document.getElementById('canvaPremium').value = document.getElementById('canvaBtnPremium').href;
+      } else {
+        alert('❌ Password salah!');
+      }
+    };
+
+    // ===== TOGGLE SETTINGS PANEL =====
+    window.toggleSettingsPanel = function() {
+      document.getElementById('settingsPanelPremium').classList.toggle('active');
+    };
+
+    // ===== GENERATE STARS =====
+    function generateStars() {
+      const starField = document.getElementById('starField');
+      for (let i = 0; i < 150; i++) {
+        let star = document.createElement('div');
+        star.className = 'star-premium';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.width = Math.random() * 5 + 2 + 'px';
+        star.style.height = star.style.width;
+        star.style.animationDelay = Math.random() * 5 + 's';
+        starField.appendChild(star);
+      }
+    }
+
+    // ===== INIT =====
+    window.onload = function() {
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 50
+      });
+      
+      generateStars();
+      generateRombelInputsPremium();
+      generateTingkatInputsPremium();
+      setMode('single');
+      
+      // Set default values
+      document.getElementById('logoTextPremium').value = '🏫 SD Bulan Cendekia';
+      document.getElementById('judulPremium').value = 'SD Bulan Cendekia';
+      document.getElementById('taglinePremium').value = 'Jembatan Ceria Ortu, Siswa & Guru';
+    };
+  </script>
+</body>
+</html>
